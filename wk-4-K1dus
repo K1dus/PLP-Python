@@ -1,0 +1,14 @@
+# Program: Read from one file and write a modified version to another file
+
+# Open the original file for reading
+with open("original.txt", "r") as original_file:
+    content = original_file.read()
+
+# Example modification: convert all text to uppercase
+modified_content = content.upper()
+
+# Open a new file for writing the modified content
+with open("modified.txt", "w") as new_file:
+    new_file.write(modified_content)
+
+print("Modified content has been written to 'modified.txt'.")
