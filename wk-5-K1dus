@@ -21,3 +21,77 @@ miles.introduce()      # Hi, I'm Spider-Man, 17 years old from Brooklyn!
 miles.show_powers()    # Lists all superpowers
 miles.add_power("camouflage")
 miles.show_powers()    # Shows updated powers
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+class MilesMorales:
+    def __init__(self, alias="Spider-Man", age=17, city="Brooklyn", health=100):
+        self.alias = alias
+        self.age = age
+        self.city = city
+        self.health = health
+        self.superpowers = ["wall-crawling", "enhanced agility", "spider-sense", "venom strike"]
+        self.enemies_defeated = 0
+        self.is_hidden = False
+
+    # Introduce Miles Morales
+    def introduce(self):
+        print(f"Hi, I'm {self.alias}, {self.age} years old from {self.city}!")
+
+    # Show powers
+    def show_powers(self):
+        print(f"My superpowers are: {', '.join(self.superpowers)}")
+
+    # Add a new power
+    def add_power(self, power):
+        self.superpowers.append(power)
+        print(f"New power added: {power}")
+
+    # Attack an enemy
+    def attack(self, enemy):
+        print(f"{self.alias} attacks {enemy} with {self.superpowers[0]}!")
+        self.enemies_defeated += 1
+
+    # Take damage
+    def take_damage(self, damage):
+        self.health -= damage
+        print(f"{self.alias} takes {damage} damage! Health is now {self.health}")
+        if self.health <= 0:
+            print(f"{self.alias} has been defeated... 😢")
+
+    # Hide from enemies
+    def hide(self):
+        self.is_hidden = True
+        print(f"{self.alias} is now hidden from enemies 🕸️")
+
+    # Reveal himself
+    def reveal(self):
+        self.is_hidden = False
+        print(f"{self.alias} has revealed himself!")
+
+    # Status report
+    def status(self):
+        print(f"Alias: {self.alias}, Health: {self.health}, Hidden: {self.is_hidden}, Enemies defeated: {self.enemies_defeated}")
+
+# Example usage
+miles = MilesMorales()
+miles.introduce()
+miles.show_powers()
+miles.attack("Green Goblin")
+miles.take_damage(20)
+miles.hide()
+miles.status()
+miles.add_power("camouflage")
+miles.show_powers()
+
+
