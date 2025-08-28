@@ -162,3 +162,77 @@ miles2.status()
 
 
 
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+# Base class
+class Superhero:
+    def __init__(self, alias, age, city, health=100):
+        self._alias = alias           # Encapsulated attribute (protected)
+        self._age = age
+        self._city = city
+        self._health = health
+
+    def introduce(self):
+        print(f"Hi, I'm {self._alias}, {self._age} years old from {self._city}!")
+
+    def take_damage(self, damage):
+        self._health -= damage
+        print(f"{self._alias} takes {damage} damage! Health is now {self._health}")
+        if self._health <= 0:
+            print(f"{self._alias} has been defeated... 😢")
+
+    def status(self):
+        print(f"Alias: {self._alias}, Health: {self._health}")
+
+# Child class
+class MilesMorales(Superhero):
+    def __init__(self, alias, age, city, health=100, superpowers=None):
+        super().__init__(alias, age, city, health)  # Inherit from Superhero
+        self.superpowers = superpowers if superpowers else ["wall-crawling", "enhanced agility", "spider-sense", "venom strike"]
+        self.enemies_defeated = 0
+        self.is_hidden = False
+
+    # Polymorphism: Override introduce method
+    def introduce(self):
+        print(f"Yo! I'm {self._alias}, swinging through {self._city} with my powers!")
+
+    def show_powers(self):
+        print(f"My superpowers: {', '.join(self.superpowers)}")
+
+    def add_power(self, power):
+        self.superpowers.append(power)
+        print(f"New power added: {power}")
+
+    def attack(self, enemy):
+        print(f"{self._alias} attacks {enemy} using {self.superpowers[0]}!")
+        self.enemies_defeated += 1
+
+    def hide(self):
+        self.is_hidden = True
+        print(f"{self._alias} is now hidden 🕸️")
+
+    def reveal(self):
+        self.is_hidden = False
+        print(f"{self._alias} has revealed himself!")
+
+    def status(self):
+        print(f"Alias: {self._alias}, Health: {self._health}, Hidden: {self.is_hidden}, Enemies defeated: {self.enemies_defeated}")
+
+
+# Example usage
+miles = MilesMorales("Spider-Man", 17, "Brooklyn")
+miles.introduce()        # Polymorphic method
+miles.show_powers()
+miles.attack("Green Goblin")
+miles.take_damage(20)
+miles.hide()
+miles.status()
+
+
+
