@@ -1,0 +1,23 @@
+class MilesMorales:
+    def __init__(self, alias="Spider-Man", age=17, city="Brooklyn"):
+        self.alias = alias
+        self.age = age
+        self.city = city
+        self.superpowers = ["wall-crawling", "enhanced agility", "spider-sense", "venom strike"]
+
+    def introduce(self):
+        print(f"Hi, I'm {self.alias}, {self.age} years old from {self.city}!")
+
+    def show_powers(self):
+        print(f"My superpowers are: {', '.join(self.superpowers)}")
+
+    def add_power(self, power):
+        self.superpowers.append(power)
+        print(f"New power added: {power}")
+
+# Example usage
+miles = MilesMorales()
+miles.introduce()      # Hi, I'm Spider-Man, 17 years old from Brooklyn!
+miles.show_powers()    # Lists all superpowers
+miles.add_power("camouflage")
+miles.show_powers()    # Shows updated powers
