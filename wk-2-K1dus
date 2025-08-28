@@ -2,11 +2,15 @@ my_list = []
 
 -------------------------
 
-my_list = []  # empty list
-
 my_list.append(10)
 my_list.append(20)
 my_list.append(30)
 my_list.append(40)
 
 print(my_list)  # [10, 20, 30, 40]
+
+-------------------------
+
+my_list.insert(1, 15)  # inserting 15 at index 1 (second position)
+
+print(my_list)  # [10, 15, 20, 30, 40]
