@@ -95,3 +95,70 @@ miles.add_power("camouflage")
 miles.show_powers()
 
 
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+class MilesMorales:
+    def __init__(self, alias, age, city, health=100, superpowers=None):
+        self.alias = alias
+        self.age = age
+        self.city = city
+        self.health = health
+        self.superpowers = superpowers if superpowers is not None else ["wall-crawling", "enhanced agility", "spider-sense", "venom strike"]
+        self.enemies_defeated = 0
+        self.is_hidden = False
+
+    def introduce(self):
+        print(f"Hi, I'm {self.alias}, {self.age} years old from {self.city}!")
+
+    def show_powers(self):
+        print(f"My superpowers are: {', '.join(self.superpowers)}")
+
+    def add_power(self, power):
+        self.superpowers.append(power)
+        print(f"New power added: {power}")
+
+    def attack(self, enemy):
+        print(f"{self.alias} attacks {enemy} with {self.superpowers[0]}!")
+        self.enemies_defeated += 1
+
+    def take_damage(self, damage):
+        self.health -= damage
+        print(f"{self.alias} takes {damage} damage! Health is now {self.health}")
+        if self.health <= 0:
+            print(f"{self.alias} has been defeated... 😢")
+
+    def hide(self):
+        self.is_hidden = True
+        print(f"{self.alias} is now hidden from enemies 🕸️")
+
+    def reveal(self):
+        self.is_hidden = False
+        print(f"{self.alias} has revealed himself!")
+
+    def status(self):
+        print(f"Alias: {self.alias}, Health: {self.health}, Hidden: {self.is_hidden}, Enemies defeated: {self.enemies_defeated}")
+
+
+# Creating unique objects with different values
+miles1 = MilesMorales(alias="Spider-Man", age=17, city="Brooklyn")
+miles2 = MilesMorales(alias="Spider-Man 2099", age=25, city="New York", superpowers=["enhanced strength", "wall-crawling", "vision"])
+
+# Example usage
+miles1.introduce()
+miles2.introduce()
+
+miles1.attack("Green Goblin")
+miles2.attack("Mysterio")
+
+miles1.status()
+miles2.status()
+
+
+
